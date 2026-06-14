@@ -1,0 +1,27 @@
+# Environment files
+.env
+backend/.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv/
+.venv/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# Node / React
+frontend/node_modules/
+frontend/build/
+frontend/.env.local
+frontend/.env.development
+frontend/.env.production
+
+# Docker volumes / OS
+postgres_data/
+.DS_Store
+Thumbs.db
