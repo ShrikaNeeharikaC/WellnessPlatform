@@ -28,5 +28,6 @@ class CheckInOut(BaseModel):
     reviewed_by:           Optional[UUID]
     reviewed_at:           Optional[datetime]
     submitted_at:          datetime
+    summary_message:       Optional[str] = None   # AI-generated after submission
 
     model_config = {"from_attributes": True}

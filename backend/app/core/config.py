@@ -17,6 +17,10 @@ class Settings(BaseSettings):
 
     CORS_ORIGINS: List[str] = ["http://localhost:3000"]
 
+    # Gemini AI
+    GOOGLE_API_KEY: str = ""
+    GEMINI_MODEL: str = "gemini-2.0-flash"
+
     @field_validator("CORS_ORIGINS", mode="before")
     @classmethod
     def parse_cors(cls, v):

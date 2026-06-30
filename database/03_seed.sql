@@ -71,54 +71,54 @@ VALUES
 -- ---------------------------------------------------------------------------
 INSERT INTO plans (id, plan_name, plan_type, duration, description, benefits, terms_conditions, price, is_active)
 VALUES
-    -- Digital Wellness — 1 Week
+    -- Digital Wellness - 1 Week
     ('d0000000-0000-0000-0000-000000000001',
-     'Digital Wellness — Starter',
+     'Digital Wellness Starter',
      'digital_wellness', '1_week',
      'A self-guided 7-day introduction to wellness. Track your habits, complete daily tasks, and build momentum at your own pace.',
      '["Self-guided wellness journey","Daily nutrition & fitness tasks","Progress tracking dashboard","Access to wellness article library","Weekly check-in tool"]',
      'This plan auto-renews weekly. Cancel anytime before renewal. No refunds for partially used weeks. Health advice is informational only and does not constitute medical guidance.',
      9.99, TRUE),
 
-    -- Digital Wellness — 1 Month
+    -- Digital Wellness - 1 Month
     ('d0000000-0000-0000-0000-000000000002',
-     'Digital Wellness — Monthly',
+     'Digital Wellness Monthly',
      'digital_wellness', '1_month',
      'A comprehensive 30-day self-guided wellness program with structured weekly plans, habit tracking, and progress insights.',
      '["Self-guided wellness journey","Structured 4-week program","Daily nutrition & fitness tasks","Progress tracking & analytics","Weekly check-in tool","Access to full wellness library"]',
      'This plan auto-renews monthly. Cancel anytime before the renewal date. No refunds for partially used months. Health advice is informational only.',
      29.99, TRUE),
 
-    -- Coach Care — 1 Week
+    -- Coach Care - 1 Week
     ('d0000000-0000-0000-0000-000000000003',
-     'Coach Care — Starter',
+     'Coach Care Starter',
      'coach_care', '1_week',
      'Get personalised guidance from a dedicated wellness coach for 7 days. Includes a scheduled call, personalised task assignments, and weekly review.',
      '["Dedicated wellness coach assigned","1 scheduled coach video call","Personalised weekly task plan","Coach reviews your check-in","Direct coach messaging","Priority support"]',
      'Coach availability is subject to scheduling. Scheduled calls must be booked 24 hours in advance. Missed calls are non-refundable. Cancel anytime before renewal.',
      49.99, TRUE),
 
-    -- Coach Care — 1 Month
+    -- Coach Care - 1 Month
     ('d0000000-0000-0000-0000-000000000004',
-     'Coach Care — Monthly',
+     'Coach Care Monthly',
      'coach_care', '1_month',
      'A full month of personalised coaching. Your coach designs your weekly plan, reviews progress, and adapts your programme every week.',
      '["Dedicated wellness coach assigned","4 scheduled coach video calls (weekly)","Fully personalised monthly plan","Coach reviews every weekly check-in","Direct messaging (48h response SLA)","Progress report at month end","Priority support"]',
      'Calls must be booked 24 hours in advance. Unused calls do not roll over. Cancel before renewal for a full refund of the unused portion.',
      149.99, TRUE),
 
-    -- Medical Care — 1 Week
+    -- Medical Care - 1 Week
     ('d0000000-0000-0000-0000-000000000005',
-     'Medical Care — Starter',
+     'Medical Care Starter',
      'medical_care', '1_week',
      'Healthcare-backed wellness support for 7 days. Suitable for members with specific medical conditions or who require clinical oversight.',
      '["Healthcare professional oversight","Initial health assessment","Medically reviewed task plan","Emergency escalation protocol","Secure health data handling","Doctor clearance workflow"]',
      'This plan does not replace professional medical treatment. Content is reviewed by qualified healthcare professionals. In an emergency, contact your local emergency services immediately. Medical data is processed under GDPR Art. 9.',
      79.99, TRUE),
 
-    -- Medical Care — 1 Month
+    -- Medical Care - 1 Month
     ('d0000000-0000-0000-0000-000000000006',
-     'Medical Care — Monthly',
+     'Medical Care Monthly',
      'medical_care', '1_month',
      'A month of clinically supported wellness. Ideal for members managing chronic conditions, post-rehabilitation, or requiring medically tailored programmes.',
      '["Healthcare professional oversight","Comprehensive health assessment","Medically reviewed monthly programme","Weekly clinical check-in review","Secure health record access","Emergency escalation protocol","Doctor clearance workflow","Priority clinical support"]',
@@ -414,4 +414,4 @@ VALUES
      'a0000000-0000-0000-0000-000000000001',
      'plan.created', 'plans',
      'd0000000-0000-0000-0000-000000000001',
-     '{"plan_name":"Digital Wellness — Starter"}', '10.0.0.1');
+     '{"plan_name":"Digital Wellness Starter"}', '10.0.0.1');

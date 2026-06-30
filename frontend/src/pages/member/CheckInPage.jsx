@@ -3,7 +3,7 @@ import {
   Box, Card, CardContent, Typography, Button, TextField, Slider, Alert,
   CircularProgress, Chip, List, ListItem, ListItemText, Divider, Grid,
 } from '@mui/material';
-import { CheckCircle, History } from '@mui/icons-material';
+import { CheckCircle, History, AutoAwesome } from '@mui/icons-material';
 import { useForm } from 'react-hook-form';
 import checkinService from '../../services/checkinService';
 import dayjs from 'dayjs';
@@ -18,6 +18,7 @@ export default function CheckInPage() {
   const [history,    setHistory]    = useState([]);
   const [loading,    setLoading]    = useState(false);
   const [submitted,  setSubmitted]  = useState(false);
+  const [summary,    setSummary]    = useState('');
   const [error,      setError]      = useState('');
   const [histLoading, setHistLoading] = useState(true);
   const { register, handleSubmit, reset } = useForm();
@@ -38,6 +39,7 @@ export default function CheckInPage() {
     try {
       const res = await checkinService.submit({ week_number: week, year, completion_percentage: completion, mood_score: mood, comments });
       setHistory((prev) => [res, ...prev]);
+      setSummary(res.summary_message || '');
       setSubmitted(true);
       reset();
     } catch (e) {
@@ -62,12 +64,33 @@ export default function CheckInPage() {
               </Box>
 
               {(submitted || alreadySubmitted) ? (
-                <Box sx={{ textAlign: 'center', py: 4 }}>
-                  <CheckCircle sx={{ fontSize: 56, color: 'success.main', mb: 2 }} />
-                  <Typography variant="h6" fontWeight={700} color="success.main">Check-in submitted!</Typography>
-                  <Typography color="text.secondary" sx={{ mt: 1 }}>
-                    {alreadySubmitted && !submitted ? 'You already submitted for this week.' : 'Your coach has been notified.'}
-                  </Typography>
+                <Box sx={{ py: 2 }}>
+                  <Box sx={{ textAlign: 'center', mb: 3 }}>
+                    <CheckCircle sx={{ fontSize: 56, color: 'success.main', mb: 1 }} />
+                    <Typography variant="h6" fontWeight={700} color="success.main">Check-in submitted!</Typography>
+                    <Typography color="text.secondary" sx={{ mt: 0.5 }}>
+                      {alreadySubmitted && !submitted ? 'You already submitted for this week.' : 'Your coach has been notified.'}
+                    </Typography>
+                  </Box>
+
+                  {submitted && (
+                    <Box sx={{
+                      background: 'linear-gradient(135deg, #EEF2FF 0%, #F0FDF4 100%)',
+                      border: '1px solid #C7D2FE',
+                      borderRadius: 3,
+                      p: 3,
+                    }}>
+                      <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1.5 }}>
+                        <AutoAwesome sx={{ color: '#4F46E5', fontSize: 20 }} />
+                        <Typography variant="subtitle2" fontWeight={700} color="primary.main">
+                          Your Weekly Progress Summary
+                        </Typography>
+                      </Box>
+                      <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.8 }}>
+                        {summary || 'AI summary is currently unavailable. Your check-in has been recorded successfully!'}
+                      </Typography>
+                    </Box>
+                  )}
                 </Box>
               ) : (
                 <Box component="form" onSubmit={handleSubmit(onSubmit)}>

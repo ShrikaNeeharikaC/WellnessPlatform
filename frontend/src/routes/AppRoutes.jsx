@@ -14,11 +14,12 @@ import ActionCenterPage   from '../pages/member/ActionCenterPage';
 import NotificationsPage  from '../pages/member/NotificationsPage';
 import CheckInPage        from '../pages/member/CheckInPage';
 import ProfilePage        from '../pages/member/ProfilePage';
-import CoachDashboardPage from '../pages/coach/CoachDashboardPage';
-import MemberDetailPage   from '../pages/coach/MemberDetailPage';
-import AdminDashboardPage from '../pages/admin/AdminDashboardPage';
-import PlanManagerPage    from '../pages/admin/PlanManagerPage';
-import UserManagerPage    from '../pages/admin/UserManagerPage';
+import CoachDashboardPage  from '../pages/coach/CoachDashboardPage';
+import MemberDetailPage    from '../pages/coach/MemberDetailPage';
+import AdminDashboardPage  from '../pages/admin/AdminDashboardPage';
+import PlanManagerPage     from '../pages/admin/PlanManagerPage';
+import UserManagerPage     from '../pages/admin/UserManagerPage';
+import AppointmentsPage    from '../pages/member/AppointmentsPage';
 
 function RequireAuth({ children, roles }) {
   const { isAuthenticated, user, loading } = useAuth();
@@ -58,6 +59,7 @@ export default function AppRoutes() {
         <Route path="/actions"       element={<ActionCenterPage />} />
         <Route path="/notifications" element={<NotificationsPage />} />
         <Route path="/checkin"       element={<CheckInPage />} />
+        <Route path="/appointments"  element={<AppointmentsPage />} />
         <Route path="/profile"       element={<ProfilePage />} />
 
         <Route path="/coach"                   element={<RequireAuth roles={['coach','admin']}><CoachDashboardPage /></RequireAuth>} />

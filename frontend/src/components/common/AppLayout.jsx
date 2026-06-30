@@ -8,7 +8,7 @@ import {
 import {
   Menu as MenuIcon, Dashboard, FitnessCenter, Notifications, CheckCircle,
   Person, Logout, AdminPanelSettings, Group, FolderSpecial, Close,
-  SelfImprovement,
+  SelfImprovement, CalendarMonth,
 } from '@mui/icons-material';
 import useAuth from '../../hooks/useAuth';
 import useNotifications from '../../hooks/useNotifications';
@@ -56,11 +56,12 @@ export default function AppLayout() {
   };
 
   const memberNav = [
-    { to: '/dashboard',     icon: <Dashboard />,    label: 'Dashboard' },
-    { to: '/actions',       icon: <FitnessCenter />, label: 'Weekly Actions' },
-    { to: '/checkin',       icon: <CheckCircle />,   label: 'Check-In' },
-    { to: '/notifications', icon: <Notifications />, label: 'Notifications' },
-    { to: '/profile',       icon: <Person />,        label: 'Profile' },
+    { to: '/dashboard',     icon: <Dashboard />,      label: 'Dashboard' },
+    { to: '/actions',       icon: <FitnessCenter />,  label: 'Weekly Actions' },
+    { to: '/checkin',       icon: <CheckCircle />,    label: 'Check-In' },
+    { to: '/appointments',  icon: <CalendarMonth />,  label: 'Appointments' },
+    { to: '/notifications', icon: <Notifications />,  label: 'Notifications' },
+    { to: '/profile',       icon: <Person />,         label: 'Profile' },
   ];
   const coachNav  = [{ to: '/coach', icon: <Group />, label: 'My Members' }];
   const adminNav  = [

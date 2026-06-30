@@ -12,6 +12,8 @@ class UserPlanService:
         self.plan_repo = PlanRepository(db)
 
     def assign_plan(self, user_id, data: UserPlanCreate) -> UserPlanOut:
+        from app.services.appointment_service import AppointmentService
+
         plan = self.plan_repo.get(data.plan_id)
         if not plan or not plan.is_active:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Plan not found or inactive")
@@ -28,6 +30,14 @@ class UserPlanService:
             start_date=start,
             end_date=end,
         )
+
+        # Auto-assign the lightest-loaded coach for coach_care plans
+        if plan.plan_type == "coach_care":
+            try:
+                AppointmentService(self.repo.db).auto_assign_coach(user_id)
+            except Exception as e:
+                print(f"[Coach auto-assign] Failed (non-fatal): {e}")
+
         return UserPlanOut.model_validate(user_plan)
 
     def get_active_plan(self, user_id) -> UserPlanOut:
